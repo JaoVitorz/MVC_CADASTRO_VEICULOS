@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listagem de Veículos</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚗 Veículos Cadastrados</h1>
+        <a class="btn btn-add" href="/veiculos/cadastrar">+ Cadastrar Novo Veículo</a>
+        <table class="styled-table">
+            <tr>
+                <th>ID</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Ano</th>
+                <th>Ações</th>
+            </tr>
+            <% veiculos.forEach(v => { %>
+                <tr>
+                    <td><%= v.id %></td>
+                    <td><%= v.marca %></td>
+                    <td><%= v.modelo %></td>
+                    <td><%= v.ano %></td>
+                    <td>
+                        <a class="btn btn-edit" href="/veiculos/editar/<%= v.id %>">Editar</a>
+                        <a class="btn btn-delete" href="/veiculos/excluir/<%= v.id %>">Excluir</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </table>
+    </div>
+</body>
+</html>
